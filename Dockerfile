@@ -15,9 +15,11 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.6.14-Linux-x86
     rm ~/miniconda.sh && \
     /opt/conda/bin/conda clean -tipsy && \
     ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
-    echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
-    echo "export PATH=/opt/conda/bin:$PATH" >> ~/.bashrc && \
-    echo "conda activate base" >> ~/.bashrc
+    echo ". /opt/conda/etc/profile.d/conda.sh" > /etc/profile.d/use_conda.sh && \
+    echo "export PATH=/opt/conda/bin:$PATH" >> /etc/profile.d/use_conda.sh && \
+    echo "source activate base" >> /etc/profile.d/use_conda.sh
+
+RUN chmod +x /etc/profile.d/use_conda.sh
 
 ADD environment.yml /tmp/environment.yml
 RUN conda env update --file /tmp/environment.yml
