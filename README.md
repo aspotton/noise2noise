@@ -1,5 +1,27 @@
 # Noise2Noise
 
+*Forked repo description:*
+
+Added files to use Docker with the NVIDIA runtime and a Miniconda environment. Currently using NVIDIA CUDA 9.0 with cuDNN 7 and known to work with Ubuntu 18.04 / NVIDIA binary driver 390.
+
+## Usage
+
+### Building the Image
+
+```
+docker build -t noise2noise .
+```
+
+### Using the Image
+
+```
+docker run -it --rm --runtime=nvidia -e UID=$(id -u) -e GID=$(id -g) -e USER=$(whoami) -v $(pwd):/code noise2noise
+```
+
+# Original README follows
+
+------------------------------
+
 This is an unofficial and partial Keras implementation of "Noise2Noise: Learning Image Restoration without Clean Data" [1].
 
 There are several things different from the original paper
