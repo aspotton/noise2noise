@@ -4,7 +4,7 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /opt/conda/bin:$PATH
 
 RUN apt-get update --fix-missing && \
-    apt-get install -y sudo wget netbase bzip2 ca-certificates curl git libglib2.0-0 libgl1-mesa-glx && \
+    apt-get install -y sudo wget netbase bzip2 ca-certificates curl git libglib2.0-0 libgl1-mesa-glx libqt5x11extras5 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

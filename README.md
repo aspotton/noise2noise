@@ -15,7 +15,7 @@ docker build -t noise2noise .
 ### Using the Image
 
 ```
-docker run -it --rm --runtime=nvidia -e UID=$(id -u) -e GID=$(id -g) -e USER=$(whoami) -v $(pwd):/code noise2noise
+docker run -it --rm --runtime=nvidia -e UID=$(id -u) -e GID=$(id -g) -e USER=$(whoami) -e DISPLAY="$DISPLAY" -v /tmp/.X11-unix:/tmp/.X11-unix -v $(pwd):/code noise2noise
 ```
 
 # Original README follows
